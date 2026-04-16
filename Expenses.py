@@ -1,7 +1,6 @@
 from datetime import datetime
 
 while True:
-    print("                       ----Expense Tracker Indev----")
     print("\n1. Add Expense")
     print("2. View Expenses")
     print("3. Clear All Expenses")
@@ -9,6 +8,7 @@ while True:
     print("5. Category Summary")
     print("6. Exit")
     print("7. View Date & Time")
+    print("8. Search by Category")
 
     choice = input("Enter your choice: ")
 
@@ -32,13 +32,9 @@ while True:
         print("\n--- All Expenses ---")
         try:
             with open("Expenses.txt", "r") as file:
-                lines = file.readlines()
-
-            print("Amount   Category   Description")
-            for line in lines:
-                amount, category, description, date_time = line.strip().split(",")
-                print(amount, "  ", category, "  ", description)
-
+                for line in file:
+                    amount, category, description, date_time = line.strip().split(",")
+                    print(amount, " ", category, " ", description)
         except FileNotFoundError:
             print("No expenses found yet.")
 
@@ -55,30 +51,22 @@ while True:
                 for line in file:
                     amount, category, description, date_time = line.strip().split(",")
                     total += float(amount)
-
             print(f"\nTotal money spent: ₹{total}")
-
         except FileNotFoundError:
             print("No expenses found yet.")
 
     elif choice == "5":
         category_totals = {}
-
         try:
             with open("Expenses.txt", "r") as file:
                 for line in file:
                     amount, category, description, date_time = line.strip().split(",")
                     amount = float(amount)
-
-                    if category in category_totals:
-                        category_totals[category] += amount
-                    else:
-                        category_totals[category] = amount
+                    category_totals[category] = category_totals.get(category, 0) + amount
 
             print("\n--- Category Summary ---")
             for cat, total in category_totals.items():
                 print(f"{cat}: ₹{total}")
-
         except FileNotFoundError:
             print("No expenses found yet.")
 
@@ -89,7 +77,23 @@ while True:
                 for line in file:
                     amount, category, description, date_time = line.strip().split(",")
                     print(amount, " ", category, " ", description, " ", date_time)
+        except FileNotFoundError:
+            print("No expenses found yet.")
 
+    elif choice == "8":
+        search_cat = input("Enter category to search: ")
+        print(f"\n--- Expenses for {search_cat} ---")
+        found = False
+        try:
+            with open("Expenses.txt", "r") as file:
+                for line in file:
+                    amount, category, description, date_time = line.strip().split(",")
+                    if category.lower() == search_cat.lower():
+                        print(amount, " ", category, " ", description)
+                        found = True
+
+            if not found:
+                print("No expenses found for this category.")
         except FileNotFoundError:
             print("No expenses found yet.")
 
