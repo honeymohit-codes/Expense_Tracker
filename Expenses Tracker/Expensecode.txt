@@ -1,0 +1,16 @@
+#Code for finding the total thing and viewing it....
+Expenses = []
+
+file = open("Expenses.txt", "r")
+lines = file.readlines()
+
+for line in lines:
+    line = line.strip()
+    amount, category, description = line.split(",")
+    Expenses.append([amount, category, description])
+
+file.close()
+
+print("Amount   Category   Description")
+for Expense in Expenses:
+    print(Expense[0], "   ", Expense[1], "   ", Expense[2])

@@ -1,0 +1,7 @@
+250.0,Food,Burger
+2342.0,Transport,Cabs
+445.0,gdf,fgdgd
+500.0,Food,Pizzas for everyone
+520.0,Food,FOod bougfht from the vegetable markewt
+520.0,Others,Extras
+30.0,Food,Bought Pizza
