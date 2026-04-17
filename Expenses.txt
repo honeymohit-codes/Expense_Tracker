@@ -1,6 +1,2 @@
-200000.0,Electronics,Bought a new ASUS ROG strix 5070 laptop,2026-04-16 18:45:21
-58658.0,Something,USeless shit,2026-04-16 19:41:27
-699.0,Clothes,Bought new clothes for going to marriage,2026-04-17 18:50:24
-2499.0,Clothes,Bought more clothes for marriage visit,2026-04-17 18:50:48
-12000.0,Electronics,Bought a new watch,2026-04-17 18:51:14
-899.0,Food,Bought a piiza with extra cheeze fires and coke,2026-04-17 18:51:33
+9.0,Food,Bought Chocolate,17-04-2026 20:33
+39.0,Fee,Paid to enter the park,17-04-2026 20:34
